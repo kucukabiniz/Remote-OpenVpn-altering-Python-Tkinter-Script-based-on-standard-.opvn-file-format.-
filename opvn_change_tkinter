@@ -1,0 +1,175 @@
+# !/usr/bin/env python
+from tkinter import *
+from tkinter import messagebox
+import os
+import shutil
+
+destination="/etc/openvpn/userpass.conf"
+source=0
+x=str(3)
+servers= {
+    "1":"/etc/openvpn/others/2.ovpn",
+    "2":"/etc/openvpn/others/boston.ovpn",
+    "3":"/etc/openvpn/others/chicago.ovpn",
+    "4":"/etc/openvpn/others/dallas2.ovpn",
+    "5":"/etc/openvpn/others/denver.ovpn",
+    "6":"/etc/openvpn/others/kansas.ovpn",
+    "7":"/etc/openvpn/others/boston.la.ovpn",
+    "8":"/etc/openvpn/others/la2.ovpn",
+    "9":"/etc/openvpn/others/la3.ovpn",
+    "10":"/etc/openvpn/others/la4.ovpn",
+    "11":"/etc/openvpn/others/la5.ovpn",
+    "12":"/etc/openvpn/others/miami.ovpn",
+    "13":"/etc/openvpn/others/milan.ovpn",
+    "14":"/etc/openvpn/others/boston.ovpn",
+    "15":"/etc/openvpn/others/nj3.ovpn",
+    "16":"/etc/openvpn/others/ny.ovpn",
+    "17":"/etc/openvpn/others/ny2.ovpn",
+    "18":"/etc/openvpn/others/saltlake.ovpn",
+    "19":"/etc/openvpn/others/sanf.ovpn",
+    "20":"/etc/openvpn/others/sanf2.ovpn",
+    "21":"/etc/openvpn/others/sanjose.ovpn",
+    "22":"/etc/openvpn/others/swiss.ovpn",
+    "23":"/etc/openvpn/others/tampa.ovpn",
+    "24":"/etc/openvpn/others/wash.ovpn",
+    "25":"/etc/openvpn/others/ne.ovpn",
+    "26":"/etc/openvpn/others/aussie.ovpn",
+    "27":"/etc/openvpn/others/can.ovpn",
+    "28":"/etc/openvpn/others/jap.ovpn",
+    "29":"/etc/openvpn/others/uk.ovpn",
+    "30":"/etc/openvpn/others/tr.ovpn",
+}
+
+print(servers["3"])
+
+
+
+root = Tk()
+root.geometry("600x600")
+
+
+def makeSomething(value):
+    global x
+    x=value
+    
+def killall():
+    os.system("killall openvpn")
+
+def assignSource(y):
+    global source
+    source=servers[str(y)]
+
+def printSource():
+    print(source)
+
+def changefile():
+    shutil.copy(source,destination)
+
+def reboot():
+    os.system("reboot now -h")
+    
+
+B = Button(root, text = "USA",command=lambda*args:[makeSomething(1),assignSource(1)])
+B.place(x = 20,y = 20)
+
+C = Button(root, text = "Boston",command=lambda*args:[makeSomething(2),assignSource(2)])
+C.place(x = 20,y = 60)
+
+D = Button(root, text = "Chicago", command =lambda*args:[makeSomething(3),assignSource(3)])
+D.place(x = 20,y = 100)
+
+E = Button(root, text = "Dallas", command =lambda*args:[makeSomething(4),assignSource(4)])
+E.place(x = 20,y = 140)
+
+F = Button(root, text = "Denver", command =lambda*args:[makeSomething(5),assignSource(5)])
+F.place(x = 20,y = 180)
+
+G = Button(root, text = "Kansas", command =lambda*args:[makeSomething(6),assignSource(6)])
+G.place(x = 20,y = 220)
+
+ 
+
+
+
+
+
+H = Button(root, text = "Los Angeles", command =lambda*args:[makeSomething(7),assignSource(7)])
+H.place(x = 150,y = 20)
+
+I = Button(root, text = "Los Angeles 2", command =lambda*args:[makeSomething(8),assignSource(8)])
+I.place(x = 150,y = 60)
+
+J = Button(root, text = "Los Angeles 3", command =lambda*args:[makeSomething(9),assignSource(9)])
+J.place(x = 150,y = 100)
+
+K = Button(root, text = "Los Angeles 4", command =lambda*args:[makeSomething(10),assignSource(10)])
+K.place(x = 150,y = 140)
+
+L = Button(root, text = "Los Angeles 5", command =lambda*args:[makeSomething(11),assignSource(11)])
+L.place(x = 150,y = 180)
+
+M = Button(root, text = "Miami", command =lambda*args:[makeSomething(12),assignSource(12)])
+M.place(x = 150,y = 220)
+
+
+
+
+
+N = Button(root, text = "Milano", command =lambda*args:[makeSomething(13),assignSource(13)])
+N.place(x = 280,y = 20)
+
+O = Button(root, text = "Boston", command =lambda*args:[makeSomething(14),assignSource(14)])
+O.place(x = 280,y = 60)
+
+P = Button(root, text = "New Jersey", command =lambda*args:[makeSomething(15),assignSource(15)])
+P.place(x = 280,y = 100)
+
+R = Button(root, text = "New York", command =lambda*args:[makeSomething(16),assignSource(16)])
+R.place(x = 280,y = 140)
+
+S = Button(root, text = "New York 2", command =lambda*args:[makeSomething(17),assignSource(17)])
+S.place(x = 280,y = 180)
+
+T = Button(root, text = "Salt Lake", command =lambda*args:[makeSomething(18),assignSource(18)])
+T.place(x = 280,y = 220)
+
+
+
+
+
+A1 = Button(root, text = "Netherlands", command =lambda*args:[makeSomething(25),assignSource(25)])
+A1.place(x = 410,y=20)
+
+B1 = Button(root, text = "Australia", command =lambda*args:[makeSomething(26),assignSource(26)])
+B1.place(x = 410,y=60)
+
+C1 = Button(root, text = "Canada", command =lambda*args:[makeSomething(27),assignSource(27)])
+C1.place(x = 410,y=100)
+
+D1 = Button(root, text = "Japan", command =lambda*args:[makeSomething(28),assignSource(28)])
+D1.place(x = 410,y=140)
+
+E1 = Button(root, text = "The UK", command =lambda*args:[makeSomething(29),assignSource(29)])
+E1.place(x = 410,y=180)
+
+F1 = Button(root, text = "Turkey", command =lambda*args:[makeSomething(30),assignSource(30)])
+F1.place(x = 410,y=220)
+
+
+print (source)
+
+
+U= Button(root, text = "Connect-Reboot", command =lambda*args:changefile())
+U.place(x = 200,y = 360)
+
+Z= Button(root, text = "show source", command = printSource)
+Z.place(x = 100,y = 360)
+
+W=Button(root, text = "reboot", command = reboot)
+W.place(x = 30,y = 360)
+
+Y=Button(root, text = "kill vpn", command = killall)
+Y.place(x = 360,y=360)
+
+
+root.mainloop()
